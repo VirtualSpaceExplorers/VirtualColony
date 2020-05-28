@@ -16,3 +16,26 @@ public class HelloWorld : MonoBehaviour
         
     }
 }
+
+	static void PerformBuild ()
+	{
+		Console.WriteLine (":: Performing build");
+		var buildTarget = GetBuildTarget ();
+		var buildPath = GetBuildPath ();
+		var buildName = GetBuildName ();
+		var fixedBuildPath = GetFixedBuildPath (buildTarget, buildPath, buildName);
+        	Console.WriteLine("Fixed build path:" + fixedBuildPath);
+        	var buildInfo = BuildPipeline.BuildPlayer (GetEnabledScenes (), fixedBuildPath, buildTarget, GetBuildOptions ());
+		if( buildInfo.summary.result == BuildResult.Succeeded ) {
+			Console.WriteLine (":: Done with build");
+		}
+		else {
+			Console.WriteLine (":: Build error");
+            foreach (var step in buildInfo.steps) {
+                foreach (var message in step.messages) {
+			        Console.WriteLine (step.name + " -- " + message.content);
+                }
+            }
+    		EditorApplication.Exit( 1 );
+		}
+	}
