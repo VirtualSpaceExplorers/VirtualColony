@@ -6,7 +6,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 
 # Features 
 
- - [ ] Release 1
+ - [ ] Release 1 (7th of June)
 	 - [x] Pc controls
 	 - [ ] Vr controls
 	 - [ ] Upgrade unity version
@@ -14,7 +14,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 	 - [ ] Plan a future rendering pipeline
 	 - [ ] Build a pickup/interact system with { "Doors", "rocks", "windows", etc }
 	 - [ ] Create a beautiful atmostpheric mars skybox 
- - [ ] Release 2
+ - [ ] Release 2 (21th of June)
 	 - [ ] Planning to follow..
 
 # Want to Contribute?
