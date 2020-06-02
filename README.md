@@ -9,7 +9,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
  - [ ] Release 1 (7th of June)
 	 - [x] Pc controls
 	 - [ ] Vr controls
-	 - [ ] Upgrade unity version
+	 - [ ] [Upgrade unity version](https://github.com/Nexus-Aurora/vr-unity-demo/issues/6)
 	 - [ ] Build an assets downloader
 	 - [ ] Plan a future rendering pipeline
 	 - [ ] Build a pickup/interact system with { "Doors", "rocks", "windows", etc }
