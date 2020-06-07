@@ -1,3 +1,4 @@
+
 # vr-unity-demo
 
 ![enter image description here](http://h2847766.stratoserver.net/pydio/public/292cda38e/dl/SpaceSuit-CaliD-Banner.png?ct=true)
@@ -9,13 +10,15 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
  - [ ] Release 1 (14th of June)
 	 - [x] [Pc controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
 	 - [ ] [Vr controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/7)
-	 - [ ] [Upgrade unity version](https://github.com/Nexus-Aurora/vr-unity-demo/issues/6)
+	 - [x] [Upgrade unity version](https://github.com/Nexus-Aurora/vr-unity-demo/issues/6)
 	 - [ ] [Build an assets downloader](https://github.com/Nexus-Aurora/vr-unity-demo/issues/8)
 	 - [ ] [Plan a future rendering pipeline](https://github.com/Nexus-Aurora/vr-unity-demo/issues/10)
 	 - [ ] [Build a pickup/interact system with { "Doors", "rocks", "windows", etc }](https://github.com/Nexus-Aurora/vr-unity-demo/issues/9)
 	 - [ ] [Create a beautiful atmostpheric mars skybox](https://github.com/Nexus-Aurora/vr-unity-demo/issues/11)
  - [ ] Release 2 (28th of June)
 	 - [ ] Planning to follow..
+
+![enter image description here](http://h2847766.stratoserver.net/pydio/public/69fe889fd/dl/Social-Media-Post-Suggestion.png?ct=true)
 
 # Want to Contribute?
 **Pick a feature to build** If you look above here you can find features that we need built for the next release or if you have a great idea feel free to start on your own idea in your forked branch and present us with the results. If you have any questions please ask the @Tech Leads or direct message @NLDukey (VR-CTO) for information on discord. 
