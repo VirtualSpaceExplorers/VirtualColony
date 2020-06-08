@@ -7,7 +7,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 
 # Current Project Specifications
 
- - using Unity version: 2020.1.0b10
+ - using Unity version: [Download => 2020.1.0b10](https://unity3d.com/unity/beta/2020.1.0b10)
  - using High Definition Rendering Pipeline
  - Custom made assets-manager.
 
