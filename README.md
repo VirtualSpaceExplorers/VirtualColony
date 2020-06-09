@@ -34,7 +34,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 **Feature done?** After you have completed your feature you can create a pull request back to the original repository. Make sure you target our develop branch otherwise we will ask you to remake the pull request.
 
 # Coding conventions
-We will use [Microsoft's coding conventions](https://github.com/ktaranov/naming-convention/blob/master/C#%20Coding%20Standards%20and%20Naming%20Conventions.md) to for maximum readability and easy because mostly every company uses it which means using it here will benefit you for working in companies. 
+We will use [Microsoft's coding conventions](<https://github.com/ktaranov/naming-convention/blob/master/C%23 Coding Standards and Naming Conventions.md>) to for maximum readability and easy because mostly every company uses it which means using it here will benefit you for working in companies. 
 
 # Design inspirations
 ![enter image description here](http://h2847766.stratoserver.net/pydio/public/69fe889fd/dl/Social-Media-Post-Suggestion.png?ct=true)
