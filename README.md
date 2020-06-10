@@ -15,7 +15,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 ![enter image description here](https://media.discordapp.net/attachments/713435730109792327/719644547876913152/unknown.png?width=1061&height=531)
  - [ ] Release 1 (28th of June)
 	 - [x] [PC controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
-	 - [ ] [VR controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/7)
+	 - [x] [VR controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/7)
 	 - [x] [Upgrade unity version](https://github.com/Nexus-Aurora/vr-unity-demo/issues/6)
 	 - [ ] [Build an assets downloader](https://github.com/Nexus-Aurora/vr-unity-demo/issues/8)
 	 - [ ] [Plan a future rendering pipeline](https://github.com/Nexus-Aurora/vr-unity-demo/issues/10)
