@@ -17,7 +17,7 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 	 - [x] [PC controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
 	 - [x] [VR controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/7)
 	 - [x] [Upgrade unity version](https://github.com/Nexus-Aurora/vr-unity-demo/issues/6)
-	 - [ ] [Build an assets downloader](https://github.com/Nexus-Aurora/vr-unity-demo/issues/8)
+	 - [x] [Build an assets downloader](https://github.com/Nexus-Aurora/vr-unity-demo/issues/8)
 	 - [ ] [Plan a future rendering pipeline](https://github.com/Nexus-Aurora/vr-unity-demo/issues/10)
 	 - [ ] [Build a pickup/interact system with { "Doors", "rocks", "windows", etc }](https://github.com/Nexus-Aurora/vr-unity-demo/issues/9)
 	 - [ ] [Create a beautiful atmostpheric mars skybox](https://github.com/Nexus-Aurora/vr-unity-demo/issues/11)
