@@ -13,7 +13,8 @@ namespace Assets.Src.Controls
         private float _moveSpeed;
         private float _sensitivity;
         private float _xRotation = 0f;
-        private float _terrainHeight=2.0f; // meters above terrain to lock camera
+        private float _playerCameraOffset=1.8f; // meters between the player frame and camera height
+        private float _terrainHeight=1.8f; // meters above terrain to lock camera
 
         private Dictionary<KeyCode, Vector3> _movementControls = new Dictionary<KeyCode, Vector3>();
 
@@ -49,16 +50,15 @@ namespace Assets.Src.Controls
             
             // Hold shift to sprint
             var moveScale = _moveSpeed*_terrainHeight;//<- get faster as we go higher
-            if (Input.GetKeyDown(KeyCode.LeftShift)) 
+            if (Input.GetKey(KeyCode.LeftShift))  // sprint mode with shift key
             {
-                Debug.Log("SPRINT MODE");
-                moveScale = moveScale * 3.0f;
+                moveScale = moveScale * 5.0f;
             }
-
+            
             return new KeyboardMoveCommand
             {
                 Velocity = tickVector*moveScale, 
-                HeightOverTerrain=_terrainHeight,
+                HeightOverTerrain=_terrainHeight-_playerCameraOffset,
                 AffectedGameObject = playerObject
             };
         }
