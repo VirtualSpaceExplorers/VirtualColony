@@ -5,13 +5,11 @@
 
 The Nexus Aurora Foundation VR Experience with the aim of creating a platform of the Nexus Aurora communities ideas and designs. Using crowdsourced contributions in a controlled manner on an open-sourced project we are aiming to create a visually stunning experience to inspire the next generation and people interested to think about Mars. Keeping that goal in mind we want to allow for as many platforms and devices to run this VR experience so that we can reach a large as possible audience for education and demonstrating our innovations.
 
-# Current Project Specifications
-
- - using Unity version: [Download => 2019.4.4f1](https://unity3d.com/unity/)
- - using Universal Rendering Pipeline
+# Current URP Branch Specifications
+ - Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
+ - Using Universal Rendering Pipeline (URP), which is the higher-portability shader pipeline.  We also have a project branch that supports the better looking High Definition Rendering Pipeline (HDRP).
 
 # Features 
-![enter image description here](https://media.discordapp.net/attachments/713435730109792327/719644547876913152/unknown.png?width=1061&height=531)
  - [Uses Universal Rendering Pipeline (URP)], for portability from VR to WebGL.
  - [PC controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
  - [Create an atmospheric mars skybox](https://github.com/Nexus-Aurora/vr-unity-demo/issues/11)
