@@ -12,9 +12,9 @@ namespace Assets.Src.Controls
     {
         Action StartupActions();
 
-        IMovementCommand MovePlayer(GameObject gameObject);
+        void MovePlayer(GameObject gameObject);
 
-        IPlayerRotationCommand RotatePlayer(GameObject gameObject, Transform cameraTransform);
+        void RotatePlayer(GameObject gameObject, Transform cameraTransform);
 
         void SetMove(KeyCode keyCode, Vector3 direction);
     }
