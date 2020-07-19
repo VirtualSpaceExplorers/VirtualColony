@@ -12,7 +12,7 @@ namespace Assets.Src.Controls
     {
         Action StartupActions();
 
-        void MovePlayer(GameObject gameObject);
+        void MovePlayer(GameObject gameObject, Transform cameraTransform);
 
         void RotatePlayer(GameObject gameObject, Transform cameraTransform);
 

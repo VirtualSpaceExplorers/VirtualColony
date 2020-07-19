@@ -16,7 +16,7 @@ public class UniversalController : MonoBehaviour
     // FixedUpdate is called once per physics frame
     void FixedUpdate()
     {
-        _currentlyActiveControlScheme.MovePlayer(gameObject);
+        _currentlyActiveControlScheme.MovePlayer(gameObject, Camera.main.transform);
         _currentlyActiveControlScheme.RotatePlayer(gameObject, Camera.main.transform);
     }
 }
