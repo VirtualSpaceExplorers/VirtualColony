@@ -7,9 +7,12 @@ The Nexus Aurora Foundation VR Experience with the aim of creating a platform of
 
 # Current URP Branch Specifications
  - Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
- - This branch uses the Unity builtin rendering pipeline, with the option of later upgrading to the Universal Rendering Pipeline (URP), which is the higher-portability shader pipeline.  We also have a project branch that supports the better looking High Definition Rendering Pipeline (HDRP).
+ - This branch currently uses the Unity builtin rendering pipeline, with the option of later upgrading to the Universal Rendering Pipeline (URP), which is the higher-portability shader pipeline.  We also have a project branch that supports the better looking High Definition Rendering Pipeline (HDRP).
 
 # Features 
+ - Full WebGL support [playable at this link](http://cim.lawlorcode.com/virtual-colony-WebGL/)
+ - User interaction with airlocks
+ - Level of detail models (3 levels) pulled directly from Blender file
  - [PC controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
  - [Create an atmospheric mars skybox](https://github.com/Nexus-Aurora/vr-unity-demo/issues/11)
  - Seamless tiling texture shader, for centimeter to kilometer detail levels.
