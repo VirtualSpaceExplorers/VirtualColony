@@ -1052,8 +1052,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4939471, y: 1, z: 1}
-  m_Center: {x: -0.24697344, y: 0, z: 0}
+  m_Size: {x: 0.4331456, y: 1, z: 0.8065354}
+  m_Center: {x: -0.7773742, y: -7.233799e-17, z: 0.09673235}
 --- !u!1 &7944353154386985569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7944353154386985568}
   m_Layer: 0
-  m_Name: Modular 6m Prefab
+  m_Name: _Modular_6m_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1600,6 +1600,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7898973579600245168, guid: 1fd7f9664f392cc4089449bd651798d4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7898973579600245168, guid: 1fd7f9664f392cc4089449bd651798d4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.995
       objectReference: {fileID: 0}
     - target: {fileID: -6683781752860553909, guid: 1fd7f9664f392cc4089449bd651798d4,
         type: 3}
