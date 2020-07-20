@@ -12,7 +12,6 @@ namespace Assets.Src.Controls
     {
         private float _moveSpeed;
         private float _sensitivity;
-        private float _xRotation = 0f;
         
         public float _playerCameraOffset=1.8f; // meters between the player frame and camera height
         private float _playerHeight=1.8f; // meters above terrain to lock camera
@@ -20,7 +19,11 @@ namespace Assets.Src.Controls
         public float maxWalkForce=1000.0f; // Newtons maximum horizontal force you can apply (friction, muscles, etc)
         public float maxJumpForce=2000.0f; // jump force, in Newtons
         
-
+        public Vector3 playerPosition; // <- in global coordinates
+        public Vector3 playerVelocity; // <- for keeping an eye on speed
+        
+        // This maps a keyboard character to a player motion vector.
+        //  The up direction is overloaded to mean "scale the player".
         private Dictionary<KeyCode, Vector3> _movementControls = new Dictionary<KeyCode, Vector3>();
 
         public PcControlScheme(float moveSpeed, float mouseSensitivity)
@@ -80,6 +83,8 @@ namespace Assets.Src.Controls
             */
             
             var rb=playerObject.GetComponent<Rigidbody>();
+            playerVelocity=rb.velocity;
+            playerPosition=pos;
             
             /* This is a goofy way to accomplish walking:
                Basically a spring simulator to lock in the player's velocity.
@@ -134,25 +139,25 @@ namespace Assets.Src.Controls
             */
         }
 
-        private Vector2 lastMouseInput; // for smoothing
+        private Vector2 smoothedMouse; // for smoothing
         public void RotatePlayer(GameObject gameObject, Transform cameraTransform)
         {
             // var mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
             var mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-            mouseInput *= _sensitivity * Time.deltaTime;
+            mouseInput *= _sensitivity; // no Time.deltaTime, because "you do not need to be concerned about varying frame-rates when using this value."
             
             float smooth=0.5f; // amount of mouse smoothing to apply
-            lastMouseInput = (1.0f-smooth)*mouseInput + smooth*lastMouseInput;
-
-            _xRotation -= lastMouseInput.y;
-            _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
-
-            var cameraRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+            smoothedMouse = (1.0f-smooth)*mouseInput + smooth*smoothedMouse;
             
-         // SNIP HERE to separate targeted rotation 
-
-            cameraTransform.localRotation = cameraRotation;
-            gameObject.transform.Rotate(Vector3.up, mouseInput.x);
+            float Y_look_direction=+1.0f; // normal Y mouse
+            // Y_look_direction=-1.0f; // inverted Y look
+            
+            float xRotation = -Y_look_direction*smoothedMouse.y; // degrees rotation about X axis (pitch)
+            float yRotation = smoothedMouse.x; // degrees rotation about Y axis (yaw)
+            
+            // Apply incremental rotations to the game objects
+            cameraTransform.localRotation *= Quaternion.Euler(xRotation, 0f, 0f);
+            gameObject.transform.localRotation *= Quaternion.Euler(0.0f,yRotation,0f);
         }
 
         // Called by ControlSchemeBuilder

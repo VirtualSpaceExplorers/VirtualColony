@@ -17,6 +17,11 @@ public class UniversalController : MonoBehaviour
     void FixedUpdate()
     {
         _currentlyActiveControlScheme.MovePlayer(gameObject, Camera.main.transform);
+    }
+    
+    // Update is called once per graphics frame 
+    void Update()
+    {
         _currentlyActiveControlScheme.RotatePlayer(gameObject, Camera.main.transform);
     }
 }

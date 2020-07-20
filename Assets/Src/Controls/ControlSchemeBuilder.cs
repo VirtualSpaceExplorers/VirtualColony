@@ -25,8 +25,8 @@ namespace Assets.Src.Controls
         {
             //Check for existing saved settings?
             //Implement default button?
-            float moveSpeed=5.0f; // m/s motion speed (per unit height)
-            float lookSpeed=100.0f; // mouse look speed
+            float moveSpeed=5.0f; // m/s motion speed (per unit player height)
+            float lookSpeed=3.0f; // mouse look speed (degrees rotation per pixel of mouse movement?)
             var controls = new PcControlScheme(moveSpeed, lookSpeed);
             controls.SetMove(KeyCode.W, new Vector3(0, 0, 1));
             controls.SetMove(KeyCode.A, new Vector3(-1, 0, 0));
