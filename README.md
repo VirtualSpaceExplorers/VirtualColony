@@ -5,14 +5,16 @@
 
 The Nexus Aurora Virtual Colony on Mars aims to bring our open-source ideas about living in space into live interactive 3D. Using crowdsourced contributions in a controlled manner, we are aiming to create a visually stunning experience to inspire the next generation to think about actually living on Mars. We want as many platforms and devices to run this experience so that we can both educate and demonstrate the scientific merit and technological feasibility of our innovations.
 
+Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
+
+Our 3D models can be authored in anything that supports the FBX format.  Several of our models are in [Blender 2.79](https://www.blender.org/download/releases/2-79/), which is free, and the interface isn't quite as hard to use as prior versions.
 
 # Main Branch Specifications
- - Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
- - This branch currently uses the Unity builtin rendering pipeline, to support WebGL, PCs, consoles, and VR.
- -- The main branch retains the option of later upgrading to the Universal Rendering Pipeline (URP), which is a high portability shader pipeline.
+This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, devices, and VR with maximum performance and portability.
+ - The main branch retains the option of later upgrading to Unity's Universal Rendering Pipeline (URP), which is a high quality shader pipeline.
 
 ## Features of the Main Branch
- - Full WebGL support [playable at this link](http://cim.lawlorcode.com/virtual-colony-WebGL/)
+ - Full WebGL support [playable in-browser at this link](http://cim.lawlorcode.com/virtual-colony-WebGL/)
  - Jetpack support (hold the spacebar) and realistic Mars gravity
  - User interaction with airlocks
  - Level of detail models (3 levels) pulled directly from Blender file
