@@ -45,7 +45,7 @@ Material:
     - _DetailASize: 50
     - _DetailBContrast: 0.2
     - _DetailBRepeats: 1024
-    - _Glossiness: 0.27
-    - _Metallic: 0.01
+    - _Glossiness: 0.05
+    - _Metallic: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
