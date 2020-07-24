@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: 1225ed96b4b28db4492e946d63a3cf6a
+guid: f0cfae68b0b795243a6e36300373831f
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 1989289236423521904
+    second: Default Take
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: default
-    second: {fileID: 2100000, guid: 265035dd4b72db643b41891b8f6d30b2, type: 2}
+      name: Tire_material
+    second: {fileID: 2100000, guid: 7ec016ea43b537047a5e69fe62d1e5d6, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -38,7 +41,10 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0

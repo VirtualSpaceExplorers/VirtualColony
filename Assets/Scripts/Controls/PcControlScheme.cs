@@ -140,6 +140,7 @@ namespace Assets.Src.Controls
         }
 
         private Vector2 smoothedMouse; // for smoothing
+        private float xRotation; // look direction
         public void RotatePlayer(GameObject gameObject, Transform cameraTransform)
         {
             // var mouseInput = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -152,11 +153,14 @@ namespace Assets.Src.Controls
             float Y_look_direction=+1.0f; // normal Y mouse
             // Y_look_direction=-1.0f; // inverted Y look
             
-            float xRotation = -Y_look_direction*smoothedMouse.y; // degrees rotation about X axis (pitch)
-            float yRotation = smoothedMouse.x; // degrees rotation about Y axis (yaw)
+            xRotation += -Y_look_direction*smoothedMouse.y; // degrees rotation about X axis (pitch)
+            if (Mathf.Abs(xRotation)>90.0f) xRotation*=0.997f; // <- gently return head to neutral
             
-            // Apply incremental rotations to the game objects
-            cameraTransform.localRotation *= Quaternion.Euler(xRotation, 0f, 0f);
+            // Apply rotations to the game objects
+            cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            
+            // This one's incremental:
+            float yRotation = smoothedMouse.x; // degrees rotation about Y axis (yaw)
             gameObject.transform.localRotation *= Quaternion.Euler(0.0f,yRotation,0f);
         }
 
