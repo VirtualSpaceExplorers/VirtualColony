@@ -7,7 +7,7 @@ The Nexus Aurora Virtual Colony on Mars aims to bring our open-source ideas abou
 
 Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
 
-Our 3D models can be authored in anything that supports the FBX format.  Several of our models are in [Blender 2.79](https://www.blender.org/download/releases/2-79/), which is free, and the interface isn't quite as hard to use as prior versions.
+Our 3D models can be authored in anything that supports the FBX format.  Several of our models are made in Blender. Recommended to use Blender 2.8x.x for the newest features because it is open source and free to use! [Download Latest Blender Here](https://www.blender.org/)
 
 # Main Branch Specifications
 This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, devices, and VR with maximum performance and portability.
@@ -30,8 +30,6 @@ If you don't need WebGL support, and prefer Unity's better looking High Definiti
  - HDR skybox on Mars
  - Full "city block" model with farms, larger buildings, and the Mars Tree of Life building.
  - SteamVR input support and teleporting
-
-
 
 # Want to Contribute?
 **Pick a feature to build** If you look above here you can find features that we need built for the next release or if you have a great idea feel free to start on your own idea in your forked branch and present us with the results. If you have any questions please ask the @Tech Leads or direct message @Orion Lawlor for information on Discord. 
