@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Terrain Demo Scene.unity
     guid: 65572c27234f49123af0301f12fe62ff
+  - enabled: 1
+    path: Assets/Scenes/Terrain Demo Scene.unity
+    guid: 858e39151820b45aeab0166c23ecdad9
   m_configObjects: {}
