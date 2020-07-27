@@ -10,6 +10,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: M_Cybertruck_interior
+    second: {fileID: 2100000, guid: b84c9192119662c47a4ee4db3f679265, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: M_Cybertruck_underbody
     second: {fileID: 2100000, guid: b6fdf3fe3d8e60d4f83d9ea17c486b83, type: 2}
   materials:
@@ -41,7 +46,9 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0
