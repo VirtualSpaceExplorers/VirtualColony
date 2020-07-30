@@ -7,7 +7,8 @@ The Nexus Aurora Virtual Colony on Mars aims to bring our open-source ideas abou
 
 Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/download/archive)
 
-Our 3D models can be authored in anything that supports the FBX format.  Several of our models are made in Blender. Recommended to use Blender 2.8x.x for the newest features because it is open source and free to use! [Download Latest Blender Here](https://www.blender.org/)
+Our 3D models can be authored in anything that supports the FBX format.  Several of our models are made in Blender 2.83--it's open source and free to use! [Download Latest Blender Here](https://www.blender.org/)  Unity needs Blender 2.83 to be the default application when you double-click .blend files for it to import them correctly.
+
 
 # Main Branch Specifications
 This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, devices, and VR with maximum performance and portability.
