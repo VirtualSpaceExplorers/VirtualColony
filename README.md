@@ -10,12 +10,14 @@ Using Unity version: [Download => 2019.4.0f1](https://unity3d.com/get-unity/down
 Our 3D models can be authored in anything that supports the FBX format.  Several of our models are made in Blender 2.83--it's open source and free to use! [Download Latest Blender Here](https://www.blender.org/)  Unity needs Blender 2.83 to be the default application when you double-click .blend files for it to import them correctly.
 
 
-# Main Branch Specifications
+# Virtual Colony Specifications
 This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, devices, and VR with maximum performance and portability.
  - The main branch retains the option of later upgrading to Unity's Universal Rendering Pipeline (URP), which is a high quality shader pipeline.
 
-## Features of the Main Branch
+## Features
  - Full WebGL support [playable in-browser at this link](http://cim.lawlorcode.com/virtual-colony-WebGL/)
+ - Fully driveable Cybertruck: WS for throttle, AD for steering, space to jump out.
+ - Fully driveable 1S logistics robot: WASD to drive, FR to move the "elbow" joint, QE to move the "wrist" joint, spacebar to jump out.
  - Jetpack support (hold the spacebar) and realistic Mars gravity
  - User interaction with airlocks
  - Level of detail models (3 levels) pulled directly from Blender file
@@ -24,10 +26,12 @@ This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, de
  - Seamless tiling texture shader, for centimeter to kilometer detail levels.
 
 
-# HDRP Branch Specifications
-If you don't need WebGL support, and prefer Unity's better looking High Definition Rendering Pipeline (HDRP), the HDRP branch on this server supports that.  Send HDRP pull requests to [DeadlyMagikarps](https://github.com/DeadlyMagikarps/na-unity-virtual-colony-experimental).
+# HDRP Branch
+If you don't need WebGL support, and prefer Unity's better looking High Definition Rendering Pipeline (HDRP), the HDRP version supports that.  See [https://github.com/VirtualSpaceExplorers/VirtualColonyHDRP](https://github.com/VirtualSpaceExplorers/VirtualColonyHDRP).
+
 
 ## Features of the HDRP Branch
+ - Audio
  - HDR skybox on Mars
  - Full "city block" model with farms, larger buildings, and the Mars Tree of Life building.
  - SteamVR input support and teleporting
