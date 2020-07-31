@@ -2,6 +2,13 @@
  Hook this script to a ground vehicle to make it walk-up driveable:
    - A Trigger collider is used to detect player walk-ups.
 
+ WS are the throttle
+ AD turn the steering wheel back and forth
+ Space jumps out of the vehicle.
+
+ 
+ Orion Lawlor, lawlor@alaska.edu, 2020-07 (Public Domain)
+
 */
 using System.Collections;
 using System.Collections.Generic;
