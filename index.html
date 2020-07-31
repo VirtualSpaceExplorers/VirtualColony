@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | unity-project</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/virtual-colony-WebGL.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+        <div class="title">unity-project</div>
+      </div>
+    </div>
+
+<p>Walk around on our Mars virtual colony!  Keyboard shortcuts:
+<ul padding=20>
+<li>	Mouse: look around
+<li>	WASD: move horizontally
+<li>	Spacebar: jump / rocketpack
+<li>	+/-: Scale up/down (to get a look at the real Mars terrain)
+</ul>
+
+<p>Walk up to a Cybertruck door to start driving it:
+<ul padding=20>
+<li>	Mouse: look around
+<li>	WS: throttle forward/backward
+<li>    AD: steering wheel left/right
+<li>	Spacebar: jump out of the truck
+</ul>
+
+<p>Walk behind a logistics robot to drive it:
+<ul padding=20>
+<li>	Mouse: look around
+<li>	WA: drive forward/backward
+<li>    AD: spin the robot left/right
+<li>    FR: move the robot arm "elbow" forward (unload boxes) / reverse (load boxes)
+<li>    QE: move the robot arm "wrist" tilting forward and backward
+<li>	Spacebar: jump out of robot
+</ul>
+
+<p>Models prepared by Nexus Aurora and mostly integrated by Orion Lawlor, lawlor@alaska.edu.
+
+<p>This is clearly a work in progress--source code is available <a href="https://github.com/VirtualSpaceExplorers/VirtualColony">on GitHub</a>.  
+ 
+  </body>
+</html>
