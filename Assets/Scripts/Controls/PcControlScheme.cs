@@ -63,7 +63,7 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
         SetMove(KeyCode.Minus, new Vector3(0, -1, 0));
         SetMove(KeyCode.Underscore, new Vector3(0, -1, 0));
         
-        currentVehicle = new WalkingMotion(); 
+        currentVehicle = gameObject.AddComponent<WalkingMotion>(); // new WalkingMotion(); 
         vehicleStack=new Stack<IVehicleMotionScheme>();
     }
     
