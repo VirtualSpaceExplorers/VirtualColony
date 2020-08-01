@@ -99,6 +99,8 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
     }
 
     private Vector2 smoothedMouse; // for smoothing between frames
+    private float lastFpsTime=0;
+    private int lastFpsCount=0;
     
     // Update graphics motions
     public void Update()
@@ -107,7 +109,7 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
         var mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         mouseInput *= _sensitivity; // no Time.deltaTime, because "you do not need to be concerned about varying frame-rates when using this value."
         
-        float smooth=0.5f; // amount of mouse smoothing to apply
+        float smooth=Mathf.Clamp(1.0f-60.0f*Time.deltaTime,0.01f,1.0f); // amount of mouse smoothing to apply
         smoothedMouse = (1.0f-smooth)*mouseInput + smooth*smoothedMouse;
         
         float Y_look_direction=+1.0f; // normal Y mouse
@@ -118,6 +120,15 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
         ui.yaw += smoothedMouse.x; // degrees rotation about Y axis (yaw)
         
         currentVehicle.VehicleUpdate(ref ui,playerTransform,cameraTransform);
+        
+        lastFpsTime+=Time.deltaTime;
+        lastFpsCount++;
+        if (lastFpsTime>10.0f) {
+            float fps=(int)(lastFpsCount/lastFpsTime);
+            Debug.Log("Framerate: "+fps+" frames per second");
+            lastFpsCount=0;
+            lastFpsTime=0;
+        }
     }
 
 

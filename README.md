@@ -16,6 +16,7 @@ This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, de
 
 ## Features
  - Full WebGL support [playable in-browser at this link](http://cim.lawlorcode.com/virtual-colony-WebGL/)
+ - PostProcess 2 bloom filter for nice fuzzy emissive glowing objects.
  - Fully driveable Cybertruck: WS for throttle, AD for steering, space to jump out.
  - Fully driveable 1S logistics robot: WASD to drive, FR to move the "elbow" joint, QE to move the "wrist" joint, spacebar to jump out.
  - Jetpack support (hold the spacebar) and realistic Mars gravity
