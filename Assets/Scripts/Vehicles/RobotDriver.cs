@@ -78,13 +78,13 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         
         _restartCooldown=30;
         
-        _player.GetComponent<Collider>().enabled=true; // re-enable player collisions
-        
-        
         // Teleport player back a bit (this is tricky, collisions are incredibly violent)
         _player.transform.position=gameObject.transform.position 
             - 1.0f*gameObject.transform.right  // move behind the robot (safest place?)
             + (new Vector3(0,1.0f,0));
+        
+        // re-enable player collisions (*after* pushing them back.)
+        _player.GetComponent<Collider>().enabled=true; 
         
         // Unregister from the player's controls
         _mgr.PopVehicle(); 
