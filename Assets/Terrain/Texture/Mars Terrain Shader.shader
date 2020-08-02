@@ -1,5 +1,13 @@
-﻿// Written by Orion Lawlor, lawlor@alaska.edu, 2020-07 for Nexus Aurora (public domain)
-// Reference: https://tech.innogames.com/terrain-shader-in-unity/
+﻿/*
+Written by Orion Lawlor, lawlor@alaska.edu, 2020-07 for Nexus Aurora (public domain)
+
+References: 
+   https://tech.innogames.com/terrain-shader-in-unity/   (Basic multi-texture and syntax)
+   https://halisavakis.com/my-take-on-shaders-cliff-terrain-shader/  (Control texture)
+   The downloadable Unity Builtin Shaders, which seem to be the only documentation for _TerrainHolesTexture.
+   
+*/
+
 
 Shader "Custom/Mars Terrain Shader"
 {
@@ -33,6 +41,8 @@ Shader "Custom/Mars Terrain Shader"
 
         sampler2D _AerialTex;
         
+        // The detail textures are repeating (tiling) to provide detail
+        //   They use mipmaps to fade out from far away.
         sampler2D _DetailATex;
         float _DetailARepeats;
         half _DetailAContrast;
@@ -40,7 +50,10 @@ Shader "Custom/Mars Terrain Shader"
         sampler2D _DetailBTex;
         float _DetailBRepeats;
         half _DetailBContrast;
-
+        
+        // Enables terrain holes
+        sampler2D _TerrainHolesTexture;
+        
         struct Input
         {
             float2 uv_AerialTex;
@@ -60,8 +73,10 @@ Shader "Custom/Mars Terrain Shader"
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
+            float2 uv=IN.uv_AerialTex; 
+            float hole=tex2D(_TerrainHolesTexture, uv).r;  // for clipping out terrain holes
+        
             // Albedo comes from a texture tinted by color
-            float2 uv=IN.uv_AerialTex;
             float2 detailUV=IN.worldPos.xz; // meters
             
             fixed4 aerial = tex2D (_AerialTex, uv) * _Color;
@@ -78,7 +93,8 @@ Shader "Custom/Mars Terrain Shader"
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            
+            clip((hole==0.0)?-1:+1);
         }
         ENDCG
     }
