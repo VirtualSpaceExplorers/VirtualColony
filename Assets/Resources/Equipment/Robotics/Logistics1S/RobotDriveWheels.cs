@@ -1,7 +1,9 @@
 /*
 Applies torques to the WheelCollider objects on a 2-wheel (roomba style) robot.
 
-
+  Robot +Z direction is forward drive.
+  Robot +Y direction is up.
+  Robot +X direction is to the right.
 
 */
 ﻿using System.Collections;
@@ -21,10 +23,6 @@ public class RobotDriveWheels : MonoBehaviour
             LWheelObject.GetComponent<WheelCollider>(),
             RWheelObject.GetComponent<WheelCollider>()
         };
-        
-        // Unity "forward" is Z.  Vehicle drive direction is X.  So rotate wheels to match.
-        wheels[0].steerAngle=+80.0f;
-        wheels[1].steerAngle=-80.0f;
         
         Stop();
     }

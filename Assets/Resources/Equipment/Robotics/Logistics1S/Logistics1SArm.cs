@@ -19,7 +19,7 @@ public class Logistics1SArm : MonoBehaviour
     public float elbowMoveRate=30; // degrees/second maximum motion rate
     private Quaternion elbowStart; // initial localRotation for elbow (==180)
     public float elbowStartAngle=180; // degrees for initial elbow rotation
-    public Vector3 elbowAxis=new Vector3(0.405f,0.430f,0.0f);
+    public Vector3 elbowAxis=new Vector3(0.0f,0.430f,0.405f);
 
     public float forearmLength=0.430f; // meters between elbow and wrist joints
     
@@ -56,7 +56,7 @@ public class Logistics1SArm : MonoBehaviour
 
         // Apply angle to elbow transform (for geometry & colliders)
         elbowAngle+=elbowSmoothDel; 
-        elbow.transform.localRotation=Quaternion.Euler(0,0,elbowAngle-elbowStartAngle)*elbowStart;
+        elbow.transform.localRotation=Quaternion.Euler(elbowStartAngle-elbowAngle,0,0)*elbowStart;
         
     // Translate and rotate wrist
         // Angle change is exactly like elbow (should probably be a "joint" class)
@@ -68,9 +68,9 @@ public class Logistics1SArm : MonoBehaviour
         
         // Apply position and angle to wrist transform
         float elbowRads=(elbowAngle-90.0f)*Mathf.PI/180.0f;
-        Vector3 forearmDir=new Vector3(Mathf.Cos(elbowRads),Mathf.Sin(elbowRads),0.0f);
+        Vector3 forearmDir=new Vector3(0.0f,Mathf.Sin(elbowRads),Mathf.Cos(elbowRads));
         wrist.transform.localPosition=elbowAxis+forearmLength*forearmDir;
-        wrist.transform.localRotation=Quaternion.Euler(0,0,wristAngle-wristStartAngle)*wristStart;
+        wrist.transform.localRotation=Quaternion.Euler(wristAngle-wristStartAngle,0,0)*wristStart;
     }
 
     // Update is called once per graphics frame

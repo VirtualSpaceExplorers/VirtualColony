@@ -80,7 +80,7 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         
         // Teleport player back a bit (this is tricky, collisions are incredibly violent)
         _player.transform.position=gameObject.transform.position 
-            - 1.0f*gameObject.transform.right  // move behind the robot (safest place?)
+            - 1.0f*gameObject.transform.forward  // move just behind the robot (safest place?)
             + (new Vector3(0,1.0f,0));
         
         // re-enable player collisions (*after* pushing them back.)
@@ -101,7 +101,7 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
     // Physics forces
     public void VehicleFixedUpdate(ref UserInput ui,Transform playerTransform,Transform cameraTransform)
     {
-        if (ui.jump) {
+        if (ui.jump || gameObject.transform.up.y<0.0f) {
             StopDriving();
             return;
         }
@@ -111,10 +111,10 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         else {
             _drive.Brake(0.0f,0.0f);
             float forward=ui.move.x;
-            float turn=ui.move.z*0.3f;
+            float turn=ui.move.z*0.2f;
             float L=driveTorque*(forward-turn); // torque for left wheel
             float R=driveTorque*(forward+turn); // right wheel
-            _drive.Drive(L,-R); // negative because one motor is facing backwards
+            _drive.Drive(L,R); 
             // Debug.Log("Motor drive torques: "+L+", "+R);
         }
         
@@ -145,9 +145,9 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         float speedZoomout=gameObject.GetComponent<Rigidbody>().velocity.magnitude;
         ui.yaw*=Mathf.Clamp(1.0f-speedZoomout*Time.deltaTime,0.5f,1.0f); // drop yaw to zero when driving
         float radius=1.4f + 0.2f*speedZoomout;
-        Quaternion look_yaw=Quaternion.Euler(0.0f, ui.yaw, 0.0f);
+        Quaternion look_yaw=Quaternion.Euler(0.0f, ui.yaw-90.0f, 0.0f); // Player is +X forward, we are +Z forward
         playerTransform.position=gameObject.transform.position
-            +(gameObject.transform.right*0.7f) // in main work area
+            +(gameObject.transform.forward*0.7f) // in main work area
             +(new Vector3(0.0f,-1.0f,0)); // compensate for camera's +1.8m in y
         playerTransform.rotation=gameObject.transform.rotation*look_yaw;
         playerTransform.position-=radius*playerTransform.right;
