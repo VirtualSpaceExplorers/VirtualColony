@@ -33,6 +33,7 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
     {
         vehicleStack.Push(currentVehicle);
         currentVehicle=newVehicle;
+        ui.yaw=0.0f; // face forward in vehicle
     }
     public void PopVehicle() 
     {
@@ -79,6 +80,7 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
     // Apply physics forces
     public void FixedUpdate()
     {
+    /*
         var moveVector = new Vector3();
         foreach(var key in _movementControls.Keys)
         {
@@ -89,6 +91,12 @@ public class PcControlScheme : MonoBehaviour, IVehicleManager
         }
         
         ui.move=moveVector;
+     */
+        ui.move=new Vector3(
+            Input.GetAxis("Vertical"), //<- move.x: forward direction (WS keys)
+            0.0f, //<- move.y: upward direction
+            -Input.GetAxis("Horizontal") //<- move.z: turning left (AD keys)
+        );
         ui.action=Input.GetKey(KeyCode.F) || Input.GetKey(KeyCode.Mouse0) || Input.GetKey(KeyCode.Return);
         ui.jump=Input.GetKey(KeyCode.Space);
         ui.sprint=Input.GetKey(KeyCode.LeftShift);
