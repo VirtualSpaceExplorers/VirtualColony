@@ -169,7 +169,7 @@ public class GroundVehicle : MonoBehaviour, IVehicleMotionScheme
             ui.pitch=ui.yaw=0.0f; // look straight ahead after entering vehicle
             _justEntered=false;
         }
-        ui.pitch=Mathf.Clamp(ui.pitch,-20,+90);
+        ui.pitch=Mathf.Clamp(ui.pitch,-100,+30);
         ui.yaw=Mathf.Clamp(ui.yaw,-130,+130);
         
         // The camera is the only thing that moves for mouse look
