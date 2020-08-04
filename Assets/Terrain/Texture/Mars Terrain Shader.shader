@@ -31,12 +31,11 @@ Shader "Custom/Mars Terrain Shader"
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
-        
-        //ZWrite Off // <- doesn't fix the "phantom terrain shadows in hole" bug.
 
         CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
+        // Copied from Unity builtin shaders / DefaultResourcesExtra / TerrainShaders
+        #pragma surface surf Standard addshadow fullforwardshadows
+        #pragma instancing_options assumeuniformscaling nomatrices nolightprobe nolightmap forwardadd
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
