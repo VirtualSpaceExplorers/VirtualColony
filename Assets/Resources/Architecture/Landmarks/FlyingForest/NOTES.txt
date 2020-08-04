@@ -1,0 +1,12 @@
+
+
+To make the structural supports around the pressure vessel glass:
+
+Take pressure vessel and duplicate it
+
+Shrink-fatten by -0.1m to inflate above glass
+Inset faces Individual, Thickness 0.2m, Depth -0.1m to make struts
+Delete -> Faces only to clear out centers
+
+
+

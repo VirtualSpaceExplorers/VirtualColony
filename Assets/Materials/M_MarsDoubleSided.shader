@@ -1,20 +1,14 @@
 ﻿/*
+Multi-scale detail shader.
+
 Written by Orion Lawlor, lawlor@alaska.edu, 2020-07 for Nexus Aurora (public domain)
 
-References: 
-   https://tech.innogames.com/terrain-shader-in-unity/   (Basic multi-texture and syntax)
-   https://halisavakis.com/my-take-on-shaders-cliff-terrain-shader/  (Control texture)
-   The downloadable Unity Builtin Shaders, which seem to be the only documentation for _TerrainHolesTexture.
-   
 */
-
-
-Shader "Custom/Mars Terrain Shader"
+Shader "Custom/Mars Double Sided Shader"
 {
     Properties
     {
         _Color ("Multiply Color", Color) = (1,1,1,1)
-        _AerialTex ("Aerial whole-terrain texture (RGB)", 2D) = "white" {}
         
         _DetailATex ("Detail Texture A (RGB)",2D) = "white" {}
         _DetailARepeats ("Detail A Repeat Size (meters)", Range(0.1,10000)) = 32.0
@@ -31,8 +25,7 @@ Shader "Custom/Mars Terrain Shader"
     {
         Tags { "RenderType"="Opaque" }
         LOD 200
-        
-        //ZWrite Off // <- doesn't fix the "phantom terrain shadows in hole" bug.
+	Cull Off
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
@@ -53,13 +46,10 @@ Shader "Custom/Mars Terrain Shader"
         float _DetailBRepeats;
         half _DetailBContrast;
         
-        // Enables terrain holes
-        sampler2D _TerrainHolesTexture;
-        
         struct Input
         {
             float2 uv_AerialTex;
-            float3 worldPos;  // magically get world position
+            float3 worldPos;  // magically get world position (so detail shaders line up at object edges)
         };
 
         half _Glossiness;
@@ -76,27 +66,22 @@ Shader "Custom/Mars Terrain Shader"
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             float2 uv=IN.uv_AerialTex; 
-            float hole=tex2D(_TerrainHolesTexture, uv).r;  // for clipping out terrain holes
-        
+            
             // Albedo comes from a texture tinted by color
             float2 detailUV=IN.worldPos.xz; // meters
             
-            fixed4 aerial = tex2D (_AerialTex, uv) * _Color;
             fixed4 detailA = tex2D (_DetailATex, detailUV*(1.0/_DetailARepeats));
             fixed4 detailB = tex2D (_DetailBTex, detailUV*(1.0/_DetailBRepeats));
             
-            fixed4 c=aerial*
+            fixed4 c=_Color*
                 ((detailA*2.0-1.0)*_DetailAContrast+1)*
                 ((detailB*2.0-1.0)*_DetailBContrast+1); 
             
             o.Albedo = c.rgb;
             
-            
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            
-            clip((hole==0.0)?-1:+1);
         }
         ENDCG
     }
