@@ -305,7 +305,7 @@ PrefabInstance:
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.54
+      value: 3.5499663
       objectReference: {fileID: 0}
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.557358
+      value: -63.55817
       objectReference: {fileID: 0}
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
@@ -351,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -4.158
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515283834067419779, guid: 9613dbc56da3f9947a4204c1718f9fd6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cybertruck Puprle
       objectReference: {fileID: 0}
     - target: {fileID: 7448900876442525406, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
@@ -1344,7 +1349,7 @@ PrefabInstance:
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -64.13918
+      value: -64.14
       objectReference: {fileID: 0}
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
@@ -1354,7 +1359,7 @@ PrefabInstance:
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.42
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 6515283834067419776, guid: 9613dbc56da3f9947a4204c1718f9fd6,
         type: 3}
@@ -1390,6 +1395,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -4.2720003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515283834067419779, guid: 9613dbc56da3f9947a4204c1718f9fd6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cybertruck Steel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9613dbc56da3f9947a4204c1718f9fd6, type: 3}

@@ -16,9 +16,10 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
     [SerializeField] private Vector3 _centerOfMassOffset = default;    
     [SerializeField] private  float _torque = default;
     [SerializeField] private float _steeringAngle = default;
-    [SerializeField] private float _rollingBreakTorque = default;
+    [SerializeField] private float _rollingBrakeTorque = default;
     
     public Transform PlayerSeatTransform = default;
+    private Rigidbody rb;
     
     [SerializeField] private AxleInfo[] _axleInfos = default;
     
@@ -28,7 +29,8 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
     
     private void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass +=_centerOfMassOffset;
+        rb=GetComponent<Rigidbody>();
+        rb.centerOfMass +=_centerOfMassOffset;
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,7 +44,7 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
 
     private void StartDriving(GameObject driverObject)
     {
-        StopBreaking();
+        StopBraking();
         _currentDriver = driverObject;
         _currentDriver.transform.SetParent(PlayerSeatTransform);
         _currentDriver.transform.localPosition = Vector3.zero;
@@ -55,10 +57,10 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
 
     private void StopDriving()
     {
-        StartBreaking(_rollingBreakTorque);
+        StartBraking(_rollingBrakeTorque);
         _currentDriver.transform.SetParent(null);
         // Stops the player from shooting into the sky
-        _currentDriver.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        _currentDriver.GetComponent<Rigidbody>().velocity = gameObject.GetComponent<Rigidbody>().velocity; // Vector3.zero;
         _currentDriver.GetComponent<PcControlScheme>().PopVehicle();
         _currentDriver = null;
 
@@ -67,15 +69,15 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
         }
     }
 
-    private void StartBreaking(float breakingTorque)
+    private void StartBraking(float BrakingTorque)
     {
         foreach (AxleInfo axleInfo in _axleInfos) {
-            axleInfo.leftWheel.brakeTorque = breakingTorque;
-            axleInfo.rightWheel.brakeTorque = breakingTorque;
+            axleInfo.leftWheel.brakeTorque = BrakingTorque;
+            axleInfo.rightWheel.brakeTorque = BrakingTorque;
         }
     }
 
-    private void StopBreaking()
+    private void StopBraking()
     {
         foreach (AxleInfo axleInfo in _axleInfos) {
             axleInfo.leftWheel.brakeTorque = 0;
@@ -85,9 +87,11 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
 
     public void VehicleUpdate(ref UserInput ui, Transform playerTransform, Transform cameraTransform)
     {
-        if (ui.jump) {
+        if (ui.jump || PlayerSeatTransform.up.y<0.0) {
             StopDriving();
         }
+        
+        ui.pitch=Mathf.Clamp(ui.pitch,-110.0f,+30.0f); // don't let head spin backwards
 
         /*
         
@@ -98,7 +102,7 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
         // Pitch applies only to the camera
         cameraTransform.localRotation = Quaternion.Euler(ui.pitch, 90f, 0f);
         // We yaw the entire player
-        playerTransform.localRotation = Quaternion.Euler(0.0f, ui.yaw, 0f);
+        playerTransform.localRotation = Quaternion.Euler(0.0f, ui.yaw-90f, 0f);
     }
 
     // The following Code was stolen from https://docs.unity3d.com/Manual/class-WheelCollider.html
@@ -123,7 +127,10 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
         Quaternion rotation;
         collider.GetWorldPose(out position, out rotation);
 
-        visualWheel.transform.position = position;
+        Vector3 wheelPos=visualWheel.transform.position;
+        wheelPos.y = position.y; // track vertical position (suspension)
+        visualWheel.transform.position = wheelPos;
+        
         visualWheel.transform.rotation = rotation;
 
         // Need to do this otherwise the wheels will have the wrong rotation.
@@ -132,8 +139,19 @@ public class Cybertruck : MonoBehaviour, IVehicleMotionScheme
 
     public void VehicleFixedUpdate(ref UserInput ui, Transform playerTransform, Transform cameraTransform)
     {
-        float motor = _torque * Input.GetAxis("Vertical");
-        float steering = _steeringAngle * Input.GetAxis("Horizontal");
+        float motor = _torque * ui.move.x; // Input.GetAxis("Vertical");
+        if (ui.sprint) motor*=3.0f; 
+        
+        bool brake = ui.action; // press F or click mouse to brake
+        if (motor*Vector3.Dot(rb.velocity,transform.forward)<0.0) 
+        { // We're rolling the opposite direction the user asked the motor to turn
+            brake=true; 
+        }
+        
+        if (brake) StartBraking(_rollingBrakeTorque);
+        else StopBraking();
+        
+        float steering = _steeringAngle * -ui.move.z; // Input.GetAxis("Horizontal");
 
         foreach (AxleInfo axleInfo in _axleInfos) {
             if (axleInfo.steering) {
