@@ -17,7 +17,7 @@ using UnityEngine;
 
 public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
 {
-    public float driveTorque=100.0f; // N-m wheel torque at normal driving speed
+    public float driveTorque=30.0f; // N-m wheel torque at normal driving speed
     
     private RobotDriveWheels _drive;
     private Logistics1SArm _arm;
@@ -110,10 +110,14 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         if (ui.move.magnitude<0.01f) _drive.Stop();
         else {
             _drive.Brake(0.0f,0.0f);
-            float forward=ui.move.x;
-            float turn=ui.move.z*0.2f;
+            float forward=ui.move.x; //WS throttle
+            float turn=ui.move.z*0.3f; //AD steering
             float L=driveTorque*(forward-turn); // torque for left wheel
             float R=driveTorque*(forward+turn); // right wheel
+            if (ui.sprint) {
+                L*=3.0f;
+                R*=3.0f;
+            }
             _drive.Drive(L,R); 
             // Debug.Log("Motor drive torques: "+L+", "+R);
         }
@@ -131,6 +135,7 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
          
     }
 
+    private Quaternion _smoothRot;
     
     public void VehicleUpdate(ref UserInput ui,Transform playerTransform,Transform cameraTransform)
     {
@@ -144,12 +149,16 @@ public class RobotDriver : MonoBehaviour, IVehicleMotionScheme
         // The player essentially is the robot now
         float speedZoomout=gameObject.GetComponent<Rigidbody>().velocity.magnitude;
         ui.yaw*=Mathf.Clamp(1.0f-speedZoomout*Time.deltaTime,0.5f,1.0f); // drop yaw to zero when driving
-        float radius=1.4f + 0.2f*speedZoomout;
+        float radius=1.4f + 0.1f*speedZoomout;
         Quaternion look_yaw=Quaternion.Euler(0.0f, ui.yaw-90.0f, 0.0f); // Player is +X forward, we are +Z forward
         playerTransform.position=gameObject.transform.position
             +(gameObject.transform.forward*0.7f) // in main work area
             +(new Vector3(0.0f,-1.0f,0)); // compensate for camera's +1.8m in y
-        playerTransform.rotation=gameObject.transform.rotation*look_yaw;
+        
+        // Smooth camera rotations
+        float smoothR=1.0f-3.0f*Time.deltaTime;
+        _smoothRot = Quaternion.Lerp(gameObject.transform.rotation,_smoothRot,smoothR);
+        playerTransform.rotation=_smoothRot*look_yaw;
         playerTransform.position-=radius*playerTransform.right;
         
         // Smooth camera moves
