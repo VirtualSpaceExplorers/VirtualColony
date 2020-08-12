@@ -26,6 +26,7 @@ This branch uses the Unity builtin rendering pipeline, to support WebGL, PCs, de
  - [PC controls](https://github.com/Nexus-Aurora/vr-unity-demo/issues/12)
  - [Shader-based atmospheric mars skybox](https://github.com/Nexus-Aurora/vr-unity-demo/issues/11)
  - Seamless tiling texture shader, for centimeter to kilometer detail levels.
+ - Real Mars elevation data (from HRSC) for a 100km x 100km area around our landing site.
 
 
 # HDRP Branch
@@ -53,15 +54,19 @@ We will use [Microsoft's C# coding conventions](<https://github.com/ktaranov/nam
 # Design inspirations
 ![enter image description here](http://h2847766.stratoserver.net/pydio/public/69fe889fd/dl/Social-Media-Post-Suggestion.png?ct=true)
 
-#Acknowledgements
+# Acknowledgements
+
+The source code and assets here are licensed creative commons zero unless otherwise noted.
 
 The original Unity version of Virtual Colony was prepared by @Kosaki Onodera, @NLDukey, and @Bobbbay.  
 
 The terrain data is 100x100km of real HRSC stereo elevations from Mars' east Hellas crater region, combined with CTX optical imagery.  Orion Lawlor lawlor@alaska.edu prepared this elevation data by combining [HRSC elevations, MOLA elevations, and CTX optical images](https://docs.google.com/document/d/1UgCzdZw2R4w5p_X4vAVlrZJwOz1a6WO9EtQ_lVTuwdU/edit), and wrote a detail texture shader, all of which are released to the public domain.
 
-The Cybertruck model began as [STL files on Thingiverse by BREXIT](https://www.thingiverse.com/thing:4000493/files) and are Creative Commons - Attribution - Noncommercial.  It was heavily reworked and rigged for Unity by Orion Lawlor.  @TeigRolle added the WheelCollider support and drive mechanics.  Cybertruck is a product of Tesla, and the real thing probably will be very different from our simulation, although being electric it may be able to drive on Mars.
+The Cybertruck model began as [STL files on Thingiverse by BREXIT](https://www.thingiverse.com/thing:4000493/files) and are Creative Commons - Attribution - Noncommercial.  It was heavily reworked and rigged for Unity by Orion Lawlor.  @TeigRolle added the WheelCollider support and drive mechanics.  Cybertruck is a product of Tesla, and the real thing probably will be very different from our simulation, although being electric it should be possible to drive it on the surface of Mars.
 
 The 1S logistics robot began as an [Onshape CAD model](https://cad.onshape.com/documents/8fee4f1529602bb55e1d3eb7/w/30baf6f0419c8791741a8e36/e/c707eaa1296f0e26e7522261) by Orion Lawlor, and is public domain.  The 1S container model, and the standardized container concept, are by Albert Ross.  
+
+The audio assets were prepared by Somepoint Sound and Orion Lawlor.
 
 The building models began as FBX files prepared for Nexus Aurora by many people including architecture by Sean Wessels and Koen Kegel, modeling by Vikas Soni, and many others.  
 
