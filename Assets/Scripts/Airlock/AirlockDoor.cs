@@ -19,11 +19,23 @@ public class AirlockDoor : MonoBehaviour
     public float openSpeed=0.8f; // constant open/close speed (in cycles/second)
     private GameObject door; /// The instantiated door object
     
+    private bool lastOpen=false;
+    private void play(bool opening) {
+        if (opening==lastOpen) return; // <- remove repeated calls
+        else lastOpen=opening;
+        
+        AudioSource[] s=door.GetComponentsInChildren<AudioSource>();
+        int index=opening?0:1; // index into door's list of AudioSource objects
+        if (s[index]) s[index].Play();
+    }
+    
     public void Open() {
         openDir=+openSpeed;
+        play(true);
     }
     public void Close() {
         openDir=-openSpeed;
+        play(false);
     }
     
     // Move the graphical door to this location

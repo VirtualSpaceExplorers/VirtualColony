@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3526575856543486910}
   - component: {fileID: 4254471700031699586}
   m_Layer: 0
-  m_Name: Inner Door
+  m_Name: Airlock5x3Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5889023054767875645}
+  - {fileID: 6307041295638972361}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -224,3 +225,98 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &3331948532443016299
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2902714488054443712}
+    m_Modifications:
+    - target: {fileID: 142833388259562640, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 142833388259562640, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 86a0129455929cdfc87123ceaa100c8c, type: 3}
+    - target: {fileID: 5975996715807848914, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_Name
+      value: AirlockAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379478033751039789, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379478033751039789, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4be6b9f6f6e0f2ccba3917d9db53b7df, type: 3}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.131
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5791c4f4cc3425805863eccd39c45729, type: 3}
+--- !u!4 &6307041295638972361 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8771438866325416866, guid: 5791c4f4cc3425805863eccd39c45729,
+    type: 3}
+  m_PrefabInstance: {fileID: 3331948532443016299}
+  m_PrefabAsset: {fileID: 0}
