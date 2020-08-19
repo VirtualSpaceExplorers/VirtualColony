@@ -1,7 +1,7 @@
 
 # Nexus Aurora Virtual Colony on Mars
 
-![enter image description here](http://h2847766.stratoserver.net/pydio/public/292cda38e/dl/SpaceSuit-CaliD-Banner.png?ct=true)
+![VirtualColony screen shot: Mars surface, Cybertruck, habitats](http://cim.lawlorcode.com/VirtualColony_screenshot_browse.jpg)
 
 The Nexus Aurora Virtual Colony on Mars aims to bring our open-source ideas about living in space into live interactive 3D. Using crowdsourced contributions in a controlled manner, we are aiming to create a visually stunning experience to inspire the next generation to think about actually living on Mars. We want as many platforms and devices to run this experience so that we can both educate and demonstrate the scientific merit and technological feasibility of our innovations.
 
@@ -42,7 +42,9 @@ If you don't need WebGL support, and prefer Unity's better looking High Definiti
 # Want to Contribute?
 **Pick a feature to build** If you look above here you can find features that we need built for the next release or if you have a great idea feel free to start on your own idea in your forked branch and present us with the results. If you have any questions please ask the @Tech Leads or direct message @Orion Lawlor for information on Discord--and if you have an improved model, script, or Unity prefab tell us about it and we can get it integrated whether you like git or not!
 
-**How to start with git** First you navigate to the GitHub repository that contains all our open source code! [https://github.com/VirtualSpaceExplorers/VirtualColony](https://github.com/VirtualSpaceExplorers/VirtualColony ) Then you click the fork button in the top right.
+**The no-git version** Drop new models into [Virtual Space Explorers/Virtual Colony/Models on Google Drive](https://drive.google.com/drive/u/0/folders/1jbZuipVMadTcpk3M0itBCFXF4Qjd8s_g) and let us know.
+
+**How to start with git** First you navigate to the GitHub repository that contains all our open source code: [https://github.com/VirtualSpaceExplorers/VirtualColony](https://github.com/VirtualSpaceExplorers/VirtualColony ) Then you click the fork button in the top right.
 
 **You have made your forked repository!** A new repository will show up looking exactly like ours but it yours! Now you can use your favorite git software to get the code from the server to your machine. And develop however you want too. Don't forget to commit! If you need help with setting up your development environment, please ask in the #vr-discussions for help from your fellow developers or make an issue on the github. 
 
@@ -51,11 +53,7 @@ If you don't need WebGL support, and prefer Unity's better looking High Definiti
 # Coding conventions
 We will use [Microsoft's C# coding conventions](<https://github.com/ktaranov/naming-convention/blob/master/C%23 Coding Standards and Naming Conventions.md>) to for maximum readability and easy because mostly every company uses it which means using it here will benefit you for working in companies. 
 
-# Design inspirations
-![enter image description here](http://h2847766.stratoserver.net/pydio/public/69fe889fd/dl/Social-Media-Post-Suggestion.png?ct=true)
-
 # Acknowledgements
-
 The source code and assets here are licensed creative commons zero unless otherwise noted.
 
 The original Unity version of Virtual Colony was prepared by @Kosaki Onodera, @NLDukey, and @Bobbbay.  
